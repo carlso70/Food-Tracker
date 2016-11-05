@@ -9,7 +9,7 @@
 import UIKit
 
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     // MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
@@ -38,17 +38,17 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             photoImageView.image = meal.photo
             ratingControl.rating = meal.rating
         }
-     
-        // Enable the save button only if there is valid text
+        
+        // Enable the save button only if there is valid text and a rating
         checkValidMealName()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: UITextFieldDelagate 
+    // MARK: UITextFieldDelagate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard
@@ -57,7 +57,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        // Disable the save button while editing 
+        // Disable the save button while editing
         saveButton.isEnabled = false
     }
     
@@ -78,7 +78,6 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         }
     }
     
-    
     // MARK: UIImagePickerDelegate
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -90,14 +89,22 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // The info dic contains multiple representations of the image so we pick the orignal one
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         photoImageView.image = selectedImage
- 
+        
         dismiss(animated: true, completion: nil)
     }
     
     // MARK: Navigation
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        } else {
+            // Pops the current view controller off the navigation stack of navigationController, and performs a transition
+            navigationController!.popViewController(animated: true)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -111,7 +118,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             meal = Meal(name: name, photo: photo, rating: rating)
         }
     }
-
+    
     // MARK: Actions
     
     func selectImageFromPhotoLibrary() {
