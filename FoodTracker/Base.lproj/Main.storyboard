@@ -49,6 +49,7 @@
                                     <outlet property="nameLabel" destination="dCN-Bg-s1C" id="rjn-jR-77P"/>
                                     <outlet property="photoImageView" destination="syV-t9-1sf" id="JFy-GT-nGT"/>
                                     <outlet property="ratingControl" destination="N3Y-jW-j32" id="RxV-zH-x3v"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="ucL-yz-lfz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -67,7 +68,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ws-uq-4Fr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="400.80000000000001" y="147.97601199400302"/>
+            <point key="canvasLocation" x="215" y="148"/>
         </scene>
         <!--New Meal-->
         <scene sceneID="tne-QT-ifu">
@@ -137,7 +138,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="9JX-Vi-aAo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2408.8000000000002" y="147.97601199400302"/>
+            <point key="canvasLocation" x="1655" y="167"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PXU-zS-ifF">
@@ -173,10 +174,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APv-I5-M7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1469.5999999999999" y="147.97601199400302"/>
+            <point key="canvasLocation" x="986" y="481"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultphoto_2x" width="320" height="320"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ucL-yz-lfz"/>
+    </inferredMetricsTieBreakers>
 </document>
