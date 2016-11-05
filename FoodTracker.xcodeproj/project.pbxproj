@@ -15,6 +15,8 @@
 		6135AFF51DCAAA5F00B5726C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6135AFF31DCAAA5F00B5726C /* LaunchScreen.storyboard */; };
 		6135B0001DCAAA5F00B5726C /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6135AFFF1DCAAA5F00B5726C /* FoodTrackerTests.swift */; };
 		6135B00B1DCAAA5F00B5726C /* FoodTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6135B00A1DCAAA5F00B5726C /* FoodTrackerUITests.swift */; };
+		617F19B81DCD627C000AA11D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F19B71DCD627C000AA11D /* Meal.swift */; };
+		617F19B91DCD627C000AA11D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617F19B71DCD627C000AA11D /* Meal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		6135B0061DCAAA5F00B5726C /* FoodTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6135B00A1DCAAA5F00B5726C /* FoodTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerUITests.swift; sourceTree = "<group>"; };
 		6135B00C1DCAAA5F00B5726C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		617F19B71DCD627C000AA11D /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 				6135AFEA1DCAAA5F00B5726C /* AppDelegate.swift */,
 				6135AFEC1DCAAA5F00B5726C /* ViewController.swift */,
 				6135AFEE1DCAAA5F00B5726C /* Main.storyboard */,
+				617F19B71DCD627C000AA11D /* Meal.swift */,
 				6135AFF11DCAAA5F00B5726C /* Assets.xcassets */,
 				6135AFF31DCAAA5F00B5726C /* LaunchScreen.storyboard */,
 				6135AFF61DCAAA5F00B5726C /* Info.plist */,
@@ -263,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617F19B81DCD627C000AA11D /* Meal.swift in Sources */,
 				6135AFED1DCAAA5F00B5726C /* ViewController.swift in Sources */,
 				6108B38F1DCBCCBE0062D9DE /* RatingControl.swift in Sources */,
 				6135AFEB1DCAAA5F00B5726C /* AppDelegate.swift in Sources */,
@@ -273,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617F19B91DCD627C000AA11D /* Meal.swift in Sources */,
 				6135B0001DCAAA5F00B5726C /* FoodTrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
