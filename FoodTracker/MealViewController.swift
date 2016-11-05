@@ -8,18 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    //This meal is either passed by `MealTableViewController` in `prepareForSegue(_:sender:)` or constructed as part of adding a new meal
+    
+    var meal: Meal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.selectImageFromPhotoLibrary))
+        // Might need to change MealViewController.selectImageFromPhotoLibrary to UIViewController.selectImageFromPhotoLibrary
+        let tap = UITapGestureRecognizer(target: self, action: #selector(MealViewController.selectImageFromPhotoLibrary))
         photoImageView.addGestureRecognizer(tap)
         photoImageView.isUserInteractionEnabled = true
         
@@ -33,17 +38,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     // MARK: UITextFieldDelagate 
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard
         textField.resignFirstResponder()
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        mealNameLabel.text = textField.text
-    }
-    
     // MARK: UIImagePickerDelegate
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user cancels
         picker.dismiss(animated: true, completion: nil)
@@ -55,6 +58,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         photoImageView.image = selectedImage
  
         dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if saveButton == sender as! UIBarButtonItem {
+            let name = nameTextField.text ?? ""
+            let photo = photoImageView.image
+            let rating = ratingControl.rating
+            
+            // Set the meal to be passed after the unwind segue
+            meal = Meal(name: name, photo: photo, rating: rating)
+        }
     }
 
     // MARK: Actions

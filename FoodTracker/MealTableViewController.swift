@@ -20,9 +20,6 @@ class MealTableViewController: UITableViewController {
         // Add sample data
         loadSampleMeals()
         
-        for meal in meals {
-            print(meal.name)
-        }
     }
     
     func loadSampleMeals() {
@@ -110,5 +107,13 @@ class MealTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
+            // Add new meal
+            let newIndexPath = NSIndexPath(row: meals.count, section: 0)
+            meals.append(meal)
+            tableView.insertRows(at: [newIndexPath as IndexPath] , with: .bottom)
+        }
+    }
 }
