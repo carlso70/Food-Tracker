@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var tap = UITapGestureRecognizer(target: self, action: Selector("selectImageFromPhotoLibrary"))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.selectImageFromPhotoLibrary))
         photoImageView.addGestureRecognizer(tap)
         photoImageView.isUserInteractionEnabled = true
         
@@ -59,10 +59,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     // MARK: Actions
     @IBAction func setDefaultLabelText(_ sender: UIButton) {
         mealNameLabel.text = nameTextField.text
+    
     }
     
     func selectImageFromPhotoLibrary() {
-         print("Tapped")
         
         // Hide the keyboard
         nameTextField.resignFirstResponder()
