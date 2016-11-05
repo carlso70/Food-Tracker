@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7jV-uI-ibd" id="Vh2-VL-X4d">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultphoto_2x" translatesAutoresizingMaskIntoConstraints="NO" id="syV-t9-1sf">
@@ -82,10 +82,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wiW-CZ-7LR">
-                                <rect key="frame" x="16" y="124" width="343" height="414"/>
+                                <rect key="frame" x="16" y="86" width="343" height="414"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wkp-d5-otV">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <rect key="frame" x="20" y="0.0" width="303" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -103,22 +103,24 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="wkp-d5-otV" firstAttribute="leading" secondItem="wiW-CZ-7LR" secondAttribute="leading" id="1Qd-dW-B1i"/>
-                                    <constraint firstAttribute="trailing" secondItem="wkp-d5-otV" secondAttribute="trailing" id="AJT-Y9-rfq"/>
-                                    <constraint firstItem="666-9w-xqc" firstAttribute="leading" secondItem="wiW-CZ-7LR" secondAttribute="leading" id="LCZ-mf-cLz"/>
-                                    <constraint firstAttribute="trailing" secondItem="666-9w-xqc" secondAttribute="trailing" id="Nr5-fj-ZBt"/>
+                                    <constraint firstAttribute="trailing" secondItem="wkp-d5-otV" secondAttribute="trailing" constant="20" id="SOl-6u-whz"/>
+                                    <constraint firstItem="wkp-d5-otV" firstAttribute="leading" secondItem="wiW-CZ-7LR" secondAttribute="leading" constant="20" id="jfR-tg-CHA"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="wiW-CZ-7LR" secondAttribute="trailing" id="2FJ-Hq-hZw"/>
-                            <constraint firstItem="wiW-CZ-7LR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="LQS-Ps-CnP"/>
-                            <constraint firstItem="wiW-CZ-7LR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gM9-mo-WGf"/>
+                            <constraint firstItem="wiW-CZ-7LR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0By-O1-Km5"/>
+                            <constraint firstItem="wiW-CZ-7LR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="PSg-Ad-iv2"/>
+                            <constraint firstItem="wiW-CZ-7LR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="22" id="WFo-cU-uTV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="u3f-8Q-9EE">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ywl-Ny-7za"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ywl-Ny-7za">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="jCm-2A-pT0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="LRr-3y-bGM">
                             <connections>
                                 <segue destination="9JX-Vi-aAo" kind="unwind" unwindAction="unwindToMealListWithSender:" id="RKV-cJ-x1t"/>
