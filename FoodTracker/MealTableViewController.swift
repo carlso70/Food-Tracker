@@ -140,4 +140,20 @@ class MealTableViewController: UITableViewController {
             }
         }
     }
+    
+    // NSConfig
+    
+    func saveMeals() {
+        
+        // Saves meals to a specific location and returns true if its successful
+        let isSuccesfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.archiveURL.path)
+        
+        if !isSuccesfulSave {
+            print("Failed to save meals")
+        }
+    }
+    
+    func loadMeals()->[Meal]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.archiveURL.path) as? [Meal]
+    }
 }
