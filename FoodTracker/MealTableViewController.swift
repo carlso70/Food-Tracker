@@ -20,8 +20,13 @@ class MealTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller
         navigationItem.leftBarButtonItem = editButtonItem
         
-        // Add sample data
-        loadSampleMeals()
+        // Load saved meals otherwise load the sample data
+        if let savedMeals = loadMeals() {
+            meals += savedMeals
+        } else {
+            // Add sample data
+            loadSampleMeals()
+        }
         
     }
     
@@ -78,6 +83,9 @@ class MealTableViewController: UITableViewController {
             // Delete the row from the data source
             meals.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            // Save the new meals arr
+            saveMeals()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
@@ -139,6 +147,9 @@ class MealTableViewController: UITableViewController {
                 tableView.insertRows(at: [newIndexPath as IndexPath] , with: .bottom)
             }
         }
+        
+        // Save the meals to disk, whenever a new one is added or edited
+        saveMeals()
     }
     
     // NSConfig
