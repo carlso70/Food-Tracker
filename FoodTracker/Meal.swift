@@ -50,7 +50,7 @@ class Meal: NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObject(forKey: PropertyKey.nameKey) as! String
         let photo = aDecoder.decodeObject(forKey: PropertyKey.photoKey) as? UIImage
-        let rating = aDecoder.decodeObject(forKey: PropertyKey.ratingKey) as! Int
+        let rating = aDecoder.decodeInteger(forKey: PropertyKey.ratingKey)
         
         // Must call designated initializer
         
